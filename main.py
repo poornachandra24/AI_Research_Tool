@@ -7,8 +7,9 @@ from langchain_community.llms import OpenAI
 from langchain.chains import RetrievalQAWithSourcesChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 #from langchain_community.document_loaders import BSHTMLLoader
-#from langchain_community.document_transformers import BeautifulSoupTransformer
-from langchain.document_loaders import UnstructuredURLLoader
+from langchain_community.document_loaders import AsyncHtmlLoader
+from langchain_community.document_transformers import BeautifulSoupTransformer
+#from langchain.document_loaders import UnstructuredURLLoader
 from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from apikey import OPENAI_API_KEY
@@ -33,10 +34,16 @@ llm = OpenAI(temperature=0.9, max_tokens=500)
 
 if process_url_clicked:
     # load data
-    loader = UnstructuredURLLoader(urls=urls)
+    #loader = UnstructuredURLLoader(urls=urls)
     main_placeholder.text("Data Loading...Started...✅✅✅")
-    data = loader.load()
-    print("len of data=",len(data))
+    loader = AsyncHtmlLoader(urls)
+    docs = loader.load()
+    bs_transformer = BeautifulSoupTransformer()
+    docs_transformed = bs_transformer.transform_documents(
+                                                            docs, tags_to_extract=["span"]
+                                                        )
+    #data = loader.load()
+    #print("len of data=",len(data))
 
     # split data
     text_splitter = RecursiveCharacterTextSplitter(
@@ -44,7 +51,7 @@ if process_url_clicked:
         chunk_size=500
     )
     main_placeholder.text("Text Splitter...Started...✅✅✅")
-    docs = text_splitter.split_documents(data)
+    docs = text_splitter.split_documents(docs_transformed)
     # create embeddings and save it to FAISS index
     embeddings = OpenAIEmbeddings()
     vectorstore_openai = FAISS.from_documents(docs, embeddings)
