@@ -1,4 +1,12 @@
 streamlit==1.30.0
 networkx==3.2.1
 tiktoken==0.5.2
-backoff==2.2.1 certifi-2024.2.2 chardet-5.2.0 charset-normalizer-3.3.2 dataclasses-json-speakeasy-0.5.11 emoji-2.10.1 filetype-1.2.0 idna-3.6 jsonpath-python-1.0.6 langdetect-1.0.9 python-iso639-2024.1.2 python-magic-0.4.27 rapidfuzz-3.6.1 unstructured-0.12.3 unstructured-client-0.17.0 urllib3-2.2.0
+OpenAI == 0.28.0
+faiss-cpu==1.7.4
+langchain==0.1.1
+langchain-community==0.0.13
+python-dotenv==1.0.0
+beautifulsoup4==4.12.2
+playwright==1.41.1
+langchain-openai==0.0.5
+sentence-transformers==2.3.1
