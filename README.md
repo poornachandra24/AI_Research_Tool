@@ -50,3 +50,6 @@ This a research tool allows users to input  article URLs,  create an aggregrate 
 4. Input news article URLs, process them, and ask questions related to the content.
 
 Feel free to customize and extend the functionality as needed!
+
+## Demo:
+[![AI Researcher video demo link](https://x.com/iris24244242/status/1777302368486359489)]
