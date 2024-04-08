@@ -52,4 +52,4 @@ This a research tool allows users to input  article URLs,  create an aggregrate 
 Feel free to customize and extend the functionality as needed!
 
 ## Demo:
-[![AI Researcher video demo link](https://x.com/iris24244242/status/1777302368486359489)]
+[![AI Researcher video demo link](https://x.com/iris24244242/status/1777302368486359489)](https://x.com/iris24244242/status/1777302368486359489)
